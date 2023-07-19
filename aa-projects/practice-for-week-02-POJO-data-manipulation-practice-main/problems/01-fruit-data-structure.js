@@ -1,5 +1,5 @@
 /**************DO NOT MODIFY THIS LINE BELOW*****************/
-const fruits = require('../fruit-data')
+const fruits = require("../fruit-data");
 
 /* 01. `firstFruitObject()` - Return the first object in the fruits array
 
@@ -10,10 +10,10 @@ console.log(firstFruitObject(fruits));
 */
 
 function firstFruitObject(fruits) {
-    // Your code here
+  //   for (let i = 0; i < fruits.length; i++) {
+  return fruits[0];
+  //   }
 }
-
-
 
 /* 02. `lastFruitObject()` - Return the last object in the fruits array
 
@@ -24,9 +24,10 @@ console.log(lastFruitObject(fruits));
 */
 
 function lastFruitObject(fruits) {
-    // Your code here
+  //   for (let i = fruits.length - 1; i >= 0; i--) {
+  return fruits[fruits.length - 1];
+  //   }
 }
-
 
 /* 03. `indexFruitObject()` - Return one object at the given index from the
 fruits array. The function should have two parameters, the array and the
@@ -39,9 +40,10 @@ console.log(indexFruitObject(17, fruits));
 */
 
 function indexFruitObject(index, fruits) {
-    // Your code here
+  //   for (let i = index; i < fruits.length; i++) {
+  return fruits[index];
+  //   }
 }
-
 
 /* 04. `fruitNames()` - Return a list of all of the fruit names
 
@@ -54,10 +56,18 @@ console.log(fruitNames(fruits));
 */
 
 function fruitNames(fruits) {
-    // Your code here
+  let arr = [];
+  // for (let i = 0; i < fruits.length; i++) {
+  // arr.push(fruits[i].name)
+  for (let name of fruits) {
+    // arr.push(name["name"]);
+    arr.push(name.name);
+    // }
+  }
+  return arr;
 }
 
-/* 05. `getFruitKeys()` - Return a list of all of the keys for each fruit record.
+/* 05. `getFruitKeys()` - Return a list of all of the keys fruit record ONCE.
 NOTE: Call a function you previously wrote as a helper function.
 
 // console.log(getFruitKeys(fruits));
@@ -65,9 +75,8 @@ NOTE: Call a function you previously wrote as a helper function.
 */
 
 function getFruitKeys(fruits) {
-    // Your code here
+  return Object.keys(indexFruitObject(0, fruits));
 }
-
 
 /* 06. `getNutritionsKeys()` - Return a list of all of the keys within each
 "nutritions" object.
@@ -79,10 +88,17 @@ console.log(getNutritionsKeys(fruits));
 */
 
 function getNutritionsKeys(fruits) {
-    // Your code here
+  let ar = Object.values(firstFruitObject(fruits));
+  return ar.length;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
-module.exports = [firstFruitObject, lastFruitObject, indexFruitObject,
-    fruitNames, getFruitKeys, getNutritionsKeys];
+module.exports = [
+  firstFruitObject,
+  lastFruitObject,
+  indexFruitObject,
+  fruitNames,
+  getFruitKeys,
+  getNutritionsKeys,
+];
